@@ -1,0 +1,238 @@
+<div class="content">
+  <div class="wrapper">
+    <div class="row justify-content-around gap-2">
+      <div class="col-md-4">
+        <img
+          src="assets/images/undraw_remotely_2j6y.svg"
+          alt="Image"
+          class="img-fluid"
+        />
+      </div>
+      <div class="col-md-8 contents">
+        <form [formGroup]="careersForm" (ngSubmit)="sendApplication()">
+          <div class="row justify-content-center">
+            <div class="mb-4">
+              <h3>Welcome to Digital Bond</h3>
+              <p class="mb-4">Thank you for your interest in our agency.</p>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="fullname">Full name</label>
+                <input
+                  formControlName="fullName"
+                  type="text"
+                  class="form-control"
+                  id="fullname"
+                />
+                <span
+                  *ngIf="
+                    careersForm.get('fullName')?.errors &&
+                    careersForm.get('fullName')?.touched
+                  "
+                  class="help-block"
+                >
+                  This field is required
+                </span>
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                  formControlName="email"
+                  type="email"
+                  class="form-control"
+                  id="email"
+                />
+                <div
+                  *ngIf="
+                    careersForm.get('email')?.invalid &&
+                    careersForm.get('email')?.touched
+                  "
+                >
+                  <span
+                    *ngIf=" careersForm.get('email')?.errors?.['required']"
+                    class="help-block"
+                  >
+                    This field is required
+                  </span>
+                  <span
+                    *ngIf="careersForm.get('email')?.errors?.['notEmail']"
+                    class="help-block"
+                  >
+                    Please enter a valid Email
+                  </span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="Position">Position</label>
+                <input
+                  formControlName="position"
+                  type="text"
+                  class="form-control"
+                  id="Position"
+                />
+                <span
+                  *ngIf="
+                    careersForm.get('position')?.errors &&
+                    careersForm.get('position')?.touched
+                  "
+                  class="help-block"
+                >
+                  This field is required
+                </span>
+              </div>
+              <div class="form-group">
+                <label for="date">Avalability</label>
+                <input
+                  #avalibily
+                  formControlName="avalibility"
+                  type="date"
+                  class="form-control"
+                  id="date"
+                />
+              </div>
+              <div class="form-group">
+                <label for="Salary">Expected Salary</label>
+                <input
+                  formControlName="salary"
+                  type="number"
+                  class="form-control"
+                  id="Salary"
+                />
+                <div
+                  *ngIf="
+                    careersForm.get('salary')?.invalid &&
+                    careersForm.get('salary')?.touched
+                  "
+                >
+                  <span
+                    *ngIf=" careersForm.get('salary')?.errors?.['required']"
+                    class="help-block"
+                  >
+                    This field is required
+                  </span>
+                  <span
+                    *ngIf="careersForm.get('salary')?.errors?.['min']"
+                    class="help-block"
+                  >
+                    Please enter a valid salery number more than 9000
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="Phone"> Phone</label>
+                <input
+                  formControlName="phone"
+                  type="text"
+                  class="form-control"
+                  id="Phone"
+                />
+                <div
+                  *ngIf="
+                    careersForm.get('phone')?.invalid &&
+                    careersForm.get('phone')?.touched
+                  "
+                >
+                  <span
+                    *ngIf=" careersForm.get('phone')?.errors?.['required']"
+                    class="help-block"
+                  >
+                    This field is required
+                  </span>
+                  <span
+                    *ngIf="careersForm.get('phone')?.errors?.['notPhone']"
+                    class="help-block"
+                  >
+                    Please enter a valid phone number
+                  </span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="date-birth">Date of birth</label>
+                <input
+                  formControlName="birthDate"
+                  type="date"
+                  class="form-control"
+                  id="date-birth"
+                />
+                <span
+                  *ngIf="
+                    careersForm.get('birthDate')?.errors &&
+                    careersForm.get('birthDate')?.touched
+                  "
+                  class="help-block"
+                >
+                  This field is required
+                </span>
+              </div>
+              <div class="form-group">
+                <label for="address">Adress</label>
+                <input
+                  formControlName="address"
+                  type="text"
+                  class="form-control"
+                  id="address"
+                />
+                <span
+                  *ngIf="
+                    careersForm.get('address')?.errors &&
+                    careersForm.get('address')?.touched
+                  "
+                  class="help-block"
+                >
+                  This field is required
+                </span>
+              </div>
+              <div class="form-group">
+                <label for="status">status</label>
+                <input
+                  formControlName="status"
+                  type="text"
+                  class="form-control"
+                  id="status"
+                />
+                <span
+                  *ngIf="
+                    careersForm.get('status')?.errors &&
+                    careersForm.get('status')?.touched
+                  "
+                  class="help-block"
+                >
+                  This field is required
+                </span>
+              </div>
+              <div class="form-group file">
+                <label for="formFile" class="form-label"
+                  >Upload Your Resume
+                </label>
+                <input
+                  formControlName="cv"
+                  class="form-control"
+                  type="file"
+                  id="formFile"
+                />
+                <span
+                  *ngIf="
+                    careersForm.get('cv')?.errors &&
+                    careersForm.get('cv')?.touched
+                  "
+                  class="help-block"
+                >
+                  This field is required
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="btn-container">
+            <button *ngIf="!loading" class="btn btn-block btn-primary">
+              Submit
+            </button>
+            <spinner *ngIf="loading"></spinner>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
